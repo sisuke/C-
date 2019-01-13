@@ -7,26 +7,40 @@ namespace Etapa1
     {
         static void Main(string[] args)
         {
-            var escuela = new Escuela("Nuevo Milenio", 2000, TiposEscuela.Secundaria, pais: "Perú");
+            Escuela escuela = new Escuela("Nuevo Milenio", 2000, TiposEscuela.Secundaria, pais: "Perú");
+            var cursos = new Curso[3];
+
             escuela.Ciudad = "Trujillo";
             //escuela.Pais = "Perú";
             //escuela.TipoEscuela = TiposEscuela.Secundaria;
             Console.WriteLine(escuela);
 
-            var curso1 = new Curso(){
+
+            cursos[0] = new Curso(){
                 Nombre = "FUNPRO"
             };
-            var curso2 = new Curso(){
+            cursos[1] = new Curso(){
                 Nombre = "FUNAL"
             };
             var curso3 = new Curso(){
                 Nombre = "ESTAD"
             };
-            System.Console.WriteLine("====================================");
-            System.Console.WriteLine($"Nombre: {curso1.Nombre} -> {curso1.UniqueId}");
-            System.Console.WriteLine($"Nombre: {curso2.Nombre} -> {curso2.UniqueId}");
-            System.Console.WriteLine($"Nombre: {curso3.Nombre} -> {curso3.UniqueId}");
 
+            cursos[2] = curso3;
+
+            System.Console.WriteLine("====================================");
+            System.Console.WriteLine("Presione ENTER para continuar");
+            Console.ReadLine();
+            
+            ImprimirCursos(cursos);
+
+        }
+
+        private static void ImprimirCursos(Curso[] cursos)
+        {
+            foreach (var item in cursos){
+                Console.WriteLine($"Nombre: {item.Nombre}, Id: {item.UniqueId}");
+            }
         }
     }
 }
