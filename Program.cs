@@ -16,13 +16,16 @@ namespace Etapa1
             Console.WriteLine(escuela);
 
 
-            cursos[0] = new Curso(){
+            cursos[0] = new Curso()
+            {
                 Nombre = "FUNPRO"
             };
-            cursos[1] = new Curso(){
+            cursos[1] = new Curso()
+            {
                 Nombre = "FUNAL"
             };
-            var curso3 = new Curso(){
+            var curso3 = new Curso()
+            {
                 Nombre = "ESTAD"
             };
 
@@ -31,14 +34,15 @@ namespace Etapa1
             System.Console.WriteLine("====================================");
             System.Console.WriteLine("Presione ENTER para continuar");
             Console.ReadLine();
-            
-            ImprimirCursos(cursos);
+
+            ImprimirCursosForeach(cursos);
 
         }
 
-        private static void ImprimirCursos(Curso[] cursos)
+        private static void ImprimirCursosForeach(Curso[] cursos)
         {
-            foreach (var item in cursos){
+            foreach (var item in cursos)
+            {
                 Console.WriteLine($"Nombre: {item.Nombre}, Id: {item.UniqueId}");
             }
         }
