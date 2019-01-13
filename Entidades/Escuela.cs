@@ -19,8 +19,15 @@ namespace CoreEscuela.Entidades{
 
        public Escuela(string nombre, int añoDeCreacion) => (this.nombre,this.añoDeCreacion) = (nombre,añoDeCreacion);
 
+       public Escuela(string nombre, int añoDeCreacion, TiposEscuela tipoEscuela, string pais = "", string ciudad = ""){
+           (this.nombre,this.añoDeCreacion) = (nombre,añoDeCreacion);
+           Pais = pais;
+           Ciudad = ciudad;
+       }
+
        public override string ToString(){
-           return $" Nombre: {Nombre} \n Tipo: {TipoEscuela} \n Año de creación: {añoDeCreacion} \n Ciudad: {Ciudad} \n País: {Pais} \n";
+           string newLine = System.Environment.NewLine;
+           return $" Nombre: \"{Nombre}\" {newLine} Tipo: {TipoEscuela} \n Año de creación: {añoDeCreacion} \n Ciudad: {Ciudad} \n País: {Pais} \n";
        }
     }
 }
