@@ -10,7 +10,8 @@ namespace Etapa1
             var escuela = new Escuela("Nuevo Milenio", 2000);
             escuela.Ciudad = "Trujillo";
             escuela.Pais = "Perú";
-            Console.WriteLine(escuela.Nombre);
+            escuela.TipoEscuela = TiposEscuela.Secundaria;
+            Console.WriteLine(escuela);
         }
     }
 }
