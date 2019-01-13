@@ -10,9 +10,11 @@ namespace CoreEscuela.Entidades{
         public string Pais { get; set; }
         public string Ciudad { get; set; }
 
-        public Escuela(string nombre, int añoDeCreacion){
+        /* public Escuela(string nombre, int añoDeCreacion){
            this.nombre = nombre;
            this.añoDeCreacion = añoDeCreacion;
-       }
+        }*/
+
+       public Escuela(string nombre, int añoDeCreacion) => (this.nombre,this.añoDeCreacion) = (nombre,añoDeCreacion);
     }
 }
