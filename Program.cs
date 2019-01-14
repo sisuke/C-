@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 namespace Etapa1
@@ -9,31 +10,48 @@ namespace Etapa1
         {
             Escuela escuela = new Escuela("Nuevo Milenio", 2000, TiposEscuela.Secundaria, pais: "Perú");
 
-            escuela.Cursos = new Curso[3]{
-                new Curso(){ Nombre = "FUNPRO" },
-                new Curso(){ Nombre = "FUNAL" },
-                new Curso(){ Nombre = "ESTAD" }
+            
+
+            escuela.Cursos = new List<Curso>{
+                new Curso(){ Nombre = "FUNPRO", Jornada = TiposJornada.Mañana },
+                new Curso(){ Nombre = "FUNAL", Jornada = TiposJornada.Noche },
+                new Curso(){ Nombre = "ESTAD", Jornada = TiposJornada.Mañana }
             };
 
-            Curso [] cursos = new Curso[3]{
+            escuela.Cursos.Add(new Curso() { Nombre = "MOANSO", Jornada = TiposJornada.Tarde} );
+            escuela.Cursos.Add(new Curso() { Nombre = "TECPRO", Jornada = TiposJornada.Noche} );
+
+            var otraColeccion = new List<Curso>{
+                new Curso(){ Nombre = "TECPRO", Jornada = TiposJornada.Mañana },
+                new Curso(){ Nombre = "INISCO", Jornada = TiposJornada.Noche },
+                new Curso(){ Nombre = "DIARS", Jornada = TiposJornada.Mañana }
+            };
+
+            escuela.Cursos.AddRange(otraColeccion);
+
+            otraColeccion.Clear();
+
+            WriteLine($"Contador: {escuela.Cursos.Count}");
+
+            /* Curso [] cursos = new Curso[3]{
                 new Curso(){ Nombre = "FUNPRO" },
                 new Curso(){ Nombre = "FUNAL" },
                 new Curso(){ Nombre = "ESTAD" }
-            };
+            };*/
 
             //escuela.Cursos = cursos;
 
-            cursos = new Curso[]{
+            /*cursos = new Curso[]{
                 new Curso(){ Nombre = "FUNPRO" },
                 new Curso(){ Nombre = "FUNAL" },
-                new Curso(){ Nombre = "ESTAD" }
-            };
+                new Curso{ Nombre = "ESTAD" }
+            };*/
 
-            Curso [] cursosX = {
+            /*Curso [] cursosX = {
                 new Curso(){ Nombre = "FUNPRO" },
                 new Curso(){ Nombre = "FUNAL" },
                 new Curso(){ Nombre = "ESTAD" }
-            };
+            };*/
 
             escuela.Ciudad = "Trujillo";
             //escuela.Pais = "Perú";
@@ -56,13 +74,14 @@ namespace Etapa1
 
             cursos[2] = curso3;*/
 
-            System.Console.WriteLine("====================================");
-            System.Console.WriteLine("Presione ENTER para continuar");
+            WriteLine("====================================");
+            WriteLine("Presione ENTER para continuar");
+            WriteLine("====================================");
             Console.ReadLine();
 
-            escuela = null;
+            //escuela = null;
 
-            ImprimirCursosForeach(cursos);
+            //ImprimirCursosForeach(cursos);
             ImprimirCursosEscuela(escuela);
 
         }
