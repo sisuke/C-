@@ -35,7 +35,20 @@ namespace Etapa1
 
             Predicate<Curso> miAlgoritmo = Predicate;
 
-            escuela.Cursos.RemoveAll(Predicate);
+            //escuela.Cursos.RemoveAll(Predicate);
+
+            /*escuela.Cursos.RemoveAll(delegate (Curso curso){
+                return curso.Nombre == "TECPRO";
+            });*/
+
+            escuela.Cursos.RemoveAll((curso) => curso.Nombre == "TECPRO" && curso.Jornada == TiposJornada.Noche);
+
+
+
+
+
+
+
             WriteLine($"Contador: {escuela.Cursos.Count}");
             WriteLine("===================================");
 
