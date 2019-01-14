@@ -10,8 +10,6 @@ namespace Etapa1
         {
             Escuela escuela = new Escuela("Nuevo Milenio", 2000, TiposEscuela.Secundaria, pais: "Perú");
 
-            
-
             escuela.Cursos = new List<Curso>{
                 new Curso(){ Nombre = "FUNPRO", Jornada = TiposJornada.Mañana },
                 new Curso(){ Nombre = "FUNAL", Jornada = TiposJornada.Noche },
@@ -24,14 +22,22 @@ namespace Etapa1
             var otraColeccion = new List<Curso>{
                 new Curso(){ Nombre = "TECPRO", Jornada = TiposJornada.Mañana },
                 new Curso(){ Nombre = "INISCO", Jornada = TiposJornada.Noche },
-                new Curso(){ Nombre = "DIARS", Jornada = TiposJornada.Mañana }
+                new Curso{ Nombre = "DIARS", Jornada = TiposJornada.Mañana }
             };
 
+            Curso tmp = new Curso{ Nombre = "MATE", Jornada = TiposJornada.Mañana };
             escuela.Cursos.AddRange(otraColeccion);
-
+            escuela.Cursos.Add(tmp);
+            ImprimirCursosEscuela(escuela);
             otraColeccion.Clear();
+            WriteLine("Curso.Hash: " + tmp.GetHashCode());
+            escuela.Cursos.Remove(tmp);
 
+            Predicate<Curso> miAlgoritmo = Predicate;
+
+            escuela.Cursos.RemoveAll(Predicate);
             WriteLine($"Contador: {escuela.Cursos.Count}");
+            WriteLine("===================================");
 
             /* Curso [] cursos = new Curso[3]{
                 new Curso(){ Nombre = "FUNPRO" },
@@ -84,6 +90,11 @@ namespace Etapa1
             //ImprimirCursosForeach(cursos);
             ImprimirCursosEscuela(escuela);
 
+        }
+
+        private static bool Predicate(Curso obj)
+        {
+            return obj.Nombre == "TECPRO";
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
